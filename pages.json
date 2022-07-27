@@ -28,7 +28,7 @@
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "小超市",
     "navigationBarBackgroundColor": "#C00000",
-    "backgroundColor": "#F8F8F8",
+    "backgroundColor": "#ffffff",
     "app-plus": {
       "background": "#efeff4"
     }
@@ -60,5 +60,20 @@
         "selectedIconPath": "static/tab_icons/my-active.png"
       }
     ]
-  }
+  },
+  "subPackages": [{
+    "root": "subpkg",
+    "pages": [{
+      "path": "good_detail/good_detail",
+      "style": {
+        "enablePullDownRefresh": false
+      }
+
+    }, {
+      "path": "good_list/good_list",
+      "style": {
+        "enablePullDownRefresh": false
+      }
+    }]
+  }]
 }
