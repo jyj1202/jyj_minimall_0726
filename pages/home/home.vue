@@ -51,6 +51,7 @@
       this._getFloorData()
     },
     methods: {
+      // 获取轮播图数据
       async _getSwiperData() {
         const {
           data: res
