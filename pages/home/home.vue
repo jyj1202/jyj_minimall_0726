@@ -1,5 +1,8 @@
 <template>
   <view>
+    <view class="search">
+      <jyj-search toUrl="/subpkg/search/search"></jyj-search>
+    </view>
     <!-- 轮播图 -->
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500" :circular="true">
       <swiper-item v-for="item in swiperList" :key="item.goods_id">
@@ -95,6 +98,12 @@
 </script>
 
 <style lang="scss">
+  .search {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+  }
+  
   swiper {
     height: 330rpx;
 

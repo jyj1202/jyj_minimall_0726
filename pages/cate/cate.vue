@@ -1,5 +1,6 @@
 <template>
   <view>
+    <jyj-search toUrl="/subpkg/search/search"></jyj-search>
     <view class="scroll-view-container">
       <!-- 左侧的滚动视图区域 -->
       <scroll-view class="left-scroll-view" scroll-y :style="{height: thisWindowHeight + 'px'}">
@@ -36,7 +37,7 @@
     onLoad() {
       this._getCategoriesData()
       const systemInfo = uni.getSystemInfoSync()
-      this.thisWindowHeight = systemInfo.windowHeight
+      this.thisWindowHeight = systemInfo.windowHeight - 50
     },
     methods: {
       // 获取分类数据
