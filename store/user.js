@@ -1,16 +1,37 @@
 export default {
   namespaced: true,
-  state: {
+  state: () => ({
     address: JSON.parse(uni.getStorageSync('address') || "{}"),
-  },
+    userinfo: JSON.parse(uni.getStorageSync('userinfo') || "{}"),
+    token: uni.getStorageSync('token') || '',
+    redirectInfo: null,
+  }),
   mutations: {
-   updateAddress(state, payload) {
+    updateAddress(state, payload) {
       state.address = payload
-      this.commit('m_user/saveToStorage')
+      this.commit('m_user/saveAddressToStorage')
     },
-  saveToStorage(state) {
-    uni.setStorageSync('address', JSON.stringify(state.address))
-  }
+    updateUserInfo(state, payload) {
+      state.userinfo = payload
+      this.commit('m_user/saveUserInfoToStorage')
+      console.log(state.userinfo)
+    },
+    updateToken(state, payload) {
+      state.token = payload
+      this.commit('m_user/saveTokenToStorage')
+    },
+    updateRedirectInfo(state, payload) {
+      state.redirectInfo = payload
+    },
+    saveAddressToStorage(state) {
+      uni.setStorageSync('address', JSON.stringify(state.address))
+    },
+    saveUserInfoToStorage(state) {
+      uni.setStorageSync('userinfo', JSON.stringify(state.userinfo))
+    },
+    saveTokenToStorage(state) {
+      uni.setStorageSync('token', state.token)
+    },
   },
   getters: {
     addressInfo(state) {

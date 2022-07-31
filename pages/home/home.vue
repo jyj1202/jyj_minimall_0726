@@ -78,7 +78,7 @@
         const {
           data: res
         } = await uni.$http.get('/api/public/v1/home/floordata')
-        console.log(res)
+        // console.log(res)
         if (res.meta.status !== 200) return uni.$showFailedToast()
         res.message.forEach(item => {
           item.product_list.forEach(item => {
