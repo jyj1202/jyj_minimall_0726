@@ -24,7 +24,10 @@
 </template>
 
 <script>
+  import { tabBarBadgeMixin } from '@/mixins/mixins.js'
+  
   export default {
+    mixins: [tabBarBadgeMixin],
     data() {
       return {
         thisWindowHeight: 0,

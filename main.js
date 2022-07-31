@@ -2,9 +2,11 @@
 import Vue from 'vue'
 import App from './App'
 
+import store from '@/store'
 import {
   $http
 } from '@escook/request-miniprogram'
+
 uni.$http = $http
 // 配置请求根路径
 $http.baseUrl = 'https://api-ugo-web.itheima.net'
@@ -30,7 +32,8 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-  ...App
+  ...App,
+  store,
 })
 app.$mount()
 // #endif

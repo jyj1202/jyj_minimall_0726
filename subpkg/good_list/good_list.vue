@@ -1,8 +1,11 @@
 <template>
-  <view class="goods-list">
+  <view class="goods-list" v-if="goodList.length !== 0">
     <view v-for="(goods, i) in goodList" :key="i" @click="goodsItemClick(goods)">
       <jyj-goods-item :goods="goods"></jyj-goods-item>
     </view>
+  </view>
+  <view v-else class="nothing">
+    <text>没有东西啊</text>
   </view>
 </template>
 
@@ -33,6 +36,7 @@
       this.queryObj.query = option.query || ''
       this.queryObj.cid = option.cid || ''
       this._getGoodListData()
+      console.log(this.goodList.length !== 0)
     },
     methods: {
       async _getGoodListData(cb) {
@@ -47,14 +51,13 @@
       },
       reachBottom() {
         if (this.queryObj.pagenum * this.queryObj.pagesize >= this.total) return uni.showToast({
-            icon: 'none',
-            title: '数据加载完啦'
-          })
+          icon: 'none',
+          title: '数据加载完啦'
+        })
         this.queryObj.pagenum += 1
         this._getGoodListData()
       },
       goodsItemClick(goods) {
-        console.log('dadadad')
         uni.navigateTo({
           url: '/subpkg/good_detail/good_detail?goods_id=' + goods.goods_id
         })
@@ -75,5 +78,12 @@
 </script>
 
 <style lang="scss">
-
+.nothing {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 50rpx;
+}
 </style>

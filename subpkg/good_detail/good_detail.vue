@@ -3,7 +3,7 @@
     <detail-swiper :pics="goods_info.pics"></detail-swiper>
     <detail-goods-info :goods_info="goods_info"></detail-goods-info>
     <detail-goods-detail-info :goods_introduce="goods_info.goods_introduce"></detail-goods-detail-info>
-    <detail-bottom-bar></detail-bottom-bar>
+    <detail-bottom-bar :goods_info="goods_info"></detail-bottom-bar>
   </view>
 </template>
 
@@ -37,7 +37,7 @@
         if (res.meta.status !== 200) return uni.$showFailedToast()
         res.message.goods_introduce = res.message.goods_introduce.replace(/<img /g, '<img style="display:block" ')
         this.goods_info = res.message
-        console.log(typeof this.goods_info.goods_introduce) // html结构,需使用富文本渲染
+        // console.log(typeof this.goods_info.goods_introduce) // html结构,需使用富文本渲染
       }
     }
   }
